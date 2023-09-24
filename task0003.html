@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .calculator {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%); 
+      /* translate(left,top)(x,y) */
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Simple Calculator</h2>
+    <form id="calculator-form">
+      <label for="input1">Input 1:</label>
+      <input type="number" id="input1" required><br><br>
+      
+      <label for="input2">Input 2:</label>
+      <input type="number" id="input2" required><br><br>
+      
+      
+      <button type="button" class="multiply" onclick="calculate('multiply')">Multiply</button>
+      <button type="button" class="divide" onclick="calculate('divide')">Divide</button>
+      
+      
+    </form>
+    
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculate(str) {
+      const input1 = parseFloat(document.getElementById('input1').value);
+      const input2 = parseFloat(document.getElementById('input2').value);
+    //    const operation = document.getElementById('operation').value;
+       const operation = str;
+      let result;
+
+      if (isNaN(input1) || isNaN(input2)) {
+        alert('Please enter valid numbers for Input 1 and Input 2.');
+        return;
+      }
+
+      if (operation === 'multiply') {
+        result = input1 * input2;
+      } else if (operation === 'divide') {
+        if (input2 === 0) {
+          alert('Division by zero is not allowed.');
+          return;
+        }
+        result = input1 / input2;
+      }
+
+      document.getElementById('result').textContent = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>

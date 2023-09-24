@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .task2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let a= "webmaster";
+        function reverseString(str) 
+        {
+            let reversed = '';
+            for (let i = str.length - 1; i >= 0; i--) 
+            {
+              reversed += str[i];
+            }
+            return reversed;
+        }
+        console.log(reverseString(a));
+        document.write(`<h1 class="task2">`+"Original string is "+a+`</h1>`+`<br>`+ 
+        `<h1 class="task2">` + " Reversed String is "+reverseString(a)+`</h1>`);
+    </script>
+</body>
+</html>
